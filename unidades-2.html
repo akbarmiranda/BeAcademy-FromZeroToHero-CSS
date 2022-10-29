@@ -1,0 +1,102 @@
+<!--
+  Distâncias absolutas <lenght>
+    São fixas e não alteram seu valor.
+  |  Unidade |  Nome              | Equivalência       |
+  |  cm      | Centímetros        | 1cm= 98px/2.54     |
+  |  in      | Inches (polegadas) | 1in- 2.54cm = 98px |
+  |  px      | Pixels             | 1px = 1/96 de 1in  |
+
+   *o mais comum e mais utilizado é o px
+   *não é recomendado usar cm
+
+   Distâncias relativas
+
+   São relativas a um outro valor, pode ser o elemento 
+   pai ou root, ou o tamanho da tela
+   Benefício: Maior adaptação aos diferentes tipos de tela
+
+   | Unidade | Relativo a                                   |  
+   | em      | Tamanho da font do elemento pai              |
+   | rem     | Tamanho da font do elemento raiz (root/html) |
+   | vw      | 1%  da viewport width                        |
+   | vh      | 1% da viewport height                        |
+
+   :root {
+    font-size: 18px;
+   }
+
+   /* OU */
+
+   html {
+    font-size: 18px;
+   }
+
+   Documentação https://www.w3.org/Style/Examples/007/units.pt_BR.html
+   Documentaçao MDN: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/values_and_units
+
+   Dica do professor 1:
+   Quando trabalhamos com designs responsivovs, ou seja, layouts flexíveis
+   que se adaptam para qualquer tipo de tela, é interessante utilizar a unidade rem.
+
+   User agent (Browser), boa parte deles usam font-size: 16px;
+
+   Como converter px para rem
+   valor do px / valor da font do user agent
+
+   Ex: 32px / 16px = 2rem
+
+   Dica do professor 2:
+
+   Outra possibilidade é mudar a configuração do user agent de 16px para 10px
+   usando % e utilizando a regra de 3 da maematica, desta forma conseguimos 
+   cravar a unidade rem.
+
+   Transformar o user agent de 16px para 10px em %
+
+   User Agent - 16px = 100%
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unidade de medida 2</title>
+    <style>
+      /* :root {
+        font-size: 62.5%;
+      }*/
+      h2 {
+        font-size: 2.4rem;
+        margin-bottom: 6.4rem;
+      }
+      p {
+        margin-top: 3.2rem;
+        font-size: 1.6rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <article>
+          <div class="card">
+            <h2>Artigo sobre Unidades</h2>
+            <p class="text-box">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum
+              molestias<br />
+              labore aliquam culpa, delectus temporibus alias pariatur
+              architecto sequi<br />
+              ipsum debitis facilis! Placeat eos laudantium fugiat esse
+              architecto<br />
+              repellendus recusandae.
+            </p>
+          </div>
+          <div class="card"></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

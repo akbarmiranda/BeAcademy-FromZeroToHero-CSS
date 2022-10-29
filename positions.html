@@ -1,0 +1,110 @@
+<!--
+
+  A propriedade position especifica o tipo de método de posicionamento usado para
+  um elemento (static, relative, fixed, absolute ou sticky)
+
+  PROPRIEDADE DA POSIÇÁO
+
+  Os elementos são então posicionados usando as propriedades superior, inferior,
+  esquerda e direita. No entanto, essas propriedades, não funcionaram a menos que 
+  a propriedade position seja definida primeiro. Eles também funcionam de forma
+  diferente dependendo do valor da posição.
+
+  Exemplo:
+
+  .box {
+    potion: relative;
+    top:
+    left:
+    reght:
+    bottom:
+    z-index:
+  }
+
+  Padrão position: fixed
+    position: absolute é relativa a página toda, caso o elemento pai
+    não estiver com position: relative
+
+    Element Stacking - Empilhamento usando a z-index
+
+ 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position</title>
+    <style>
+      main {
+        position: relative;
+        background: yellow;
+        margin-top: 50px;
+      }
+      .box {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 800px;
+      }
+      /*Quando se usa relative o local antigo do objeto continua preservado
+como se algo estivesse ocupando ainda aquele lugar*/
+      .box-1 {
+        background-color: red;
+        position: relative;
+        top: 50px;
+        left: 50px;
+      }
+      /*Quando se usa absolute o local antigo do objeto não fica ocupado por nada
+      o pai precisa estar na position relative*/
+      .box-2 {
+        background: green;
+        position: absolute;
+        left: 100px;
+        top: 10px;
+      }
+      /* Fixa o elemento na tela, mesmo que movimentando a barra de rolagem*/
+      .box-3 {
+        background: blue;
+        position: fixed;
+        left: 80px;
+        top: 100px;
+      }
+      /* o position absolute deixa os objetos empilhados usando o z-index eu 
+      consigo manipular se o objeto vai trás ou pra frente dessa pilha. No nosso
+      exemplo o violeta estava atrás da box-5 e da box-6 e nós trouxemos ele pra frente
+      usando o z-index*/
+      .box-4 {
+        background: blueviolet;
+        position: absolute;
+        left: 5px;
+        top: 10px;
+        z-index: 3;
+      }
+      .box-5 {
+        background: rgb(204, 29, 117);
+        position: absolute;
+        left: 10px;
+        top: 15px;
+      }
+      .box-6 {
+        background: rgb(45, 136, 179);
+        position: absolute;
+        left: 15px;
+        top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Herança de classes-->
+    <main>
+      <div class="box box-1"></div>
+      <div class="box box-2"></div>
+      <div class="box box-3"></div>
+      <div class="box box-4"></div>
+      <div class="box box-5"></div>
+      <div class="box box-6"></div>
+    </main>
+  </body>
+</html>

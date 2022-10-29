@@ -1,0 +1,77 @@
+<!--
+  Antes do módulo Flexbox Layout havia quatro modos de layout
+
+  Block - Para seções em uma página da web (padrão)
+
+
+  Inline - Para textos
+  Table - Para dados de tabela didimensionais
+  Position - Para a posição explícita de um elemento.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexgrid Layout</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: black;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        display: flex;
+        width: 100%;
+        height: auto;
+        background: yellow;
+        justify-content: center;
+        gap: 12px;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        /*display: inline-block; faz os elementos aparecerem
+         em linha na tela */
+        display: block;
+      }
+
+      .box-1 {
+        background-color: red;
+      }
+
+      .box-2 {
+        background: green;
+      }
+      .box-3 {
+        background: blue;
+      }
+
+      .box-4 {
+        background: blueviolet;
+      }
+      .box-5 {
+        background: rgb(204, 29, 117);
+      }
+      .box-6 {
+        background: rgb(45, 136, 179);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="box box-1"></div>
+      <div class="box box-2"></div>
+      <div class="box box-3"></div>
+      <div class="box box-4"></div>
+      <div class="box box-5"></div>
+      <div class="box box-6"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!--
+  Para melhor compreensão de como funciona o fluxo vá a página
+  https://developer.mozilla.org/pt-BR/docs/Learn/CSS/CSS_layout/Normal_Flow
+
+o Browser determina qual regra aplicar e como aplicar
+caso haja diversas regras para o mesmo elmento.
+
+*O fluxo de leitura da sua folha de estilo é de cima pra baixo, da esquerda
+para a direita.
+
+
+  IMPORTANTE CONSIDERAR
+
+1 Origem da folha de estilo
+2 Especificidade
+3 Importância
+
+TIPOS DE ESTILO
+
+inline > tag style > tag link
+Se removermos o estilo inline abaixo
+vai prevalecer a tag style que está lá no cabeçalho por ser o
+segundo mais forte
+
+<!<div>
+  <h1 style="background: red">Eu sou um título</h1>
+</div>
+
+ESPECIFICIDADE
+
+Cálculo matemático desenvolvido automaticamente pela regra CSS.,
+onde cada tipo de seletor e origem do estilo possuem valores
+a serem considerados.
+
+0.Universal selector, combinator e pseudo-class (:not())
+1. Elementos do tipo seletor e pseudo-elementos (::before, ::after)
+10. Classes e atributos de seletores ([type="radio"])
+100. Seletor ID
+1000. Inline
+
+#At-rules
+  São regras relacionadas ao comportamento do CSS, começa com
+  um sinal de # seguido do identificador e valor.
+
+  São as seguintes:
+  @import serve para incluir um CSS externo.
+  @import url ("httpÇ;;linkexterno.com.br/style.css")
+  @media são regras condicionais para vários dispositivos,
+  @media (min-width: 365px) {
+
+  }
+  @font-face é para colocar fontes externas.
+  @font-face {
+
+  }
+  @keyframes serve para as animations do CSS.
+  @keyframes animantioname {
+
+  }
+
+    Combinadores (Combinators)
+
+    Combinadores são utilizados para buscar e combinar
+    seletores a fim de aplicar uma estilização.
+
+    Tipos:
+    Descendent combinator
+    Identificado por um espaço entre os seletores.
+    - busca um elemento dentro de outro
+
+    body ul li
+
+    Child Combinator
+    
+    Identificado pelo sinal > entre dois seletores
+    - Seleciona somente o elemento filho direto do pai
+    - Elementos depois do filho direto serão desconsiderados
+
+    Adjacent sibling combinator
+    Identicado pelo sinal de + (o irmão mais próximo) ~ (todos os irmãos)
+    entre dois seletores
+    - Busca somente o elemento do lado direto que é 
+    irmão deireto da hierarquia
+
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fluxo</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <!-- Aula 3
+    <style>
+      h1 {
+        background: yellow;
+      }
+      #super-title {
+        background: red;
+      }
+      h1 {
+        background: green;
+      }
+
+      .my-title-2 {
+        background: blueviolet;
+      }
+      strong {
+        color: blueviolet;
+      }
+      .my-text strong {
+        color: aqua;
+      }
+    </style>-->
+    <!--Aula 5-->
+    <!-- Descendent combinator
+      
+    <style>
+      body ul li {
+        background: green;
+        color: red;
+      }
+
+      body section div ul li {
+        background: blue;
+        color: yellow;
+      }
+    </style> -->
+    <!--Child combinator
+    <style>
+      body > ul {
+        background-color: red;
+      }
+      div > ul {
+        background-color: blue;
+      }
+    </style>
+    -->
+
+    <!-- Adjacent combinator-->
+    <style>
+      h1 + p {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1 id="super-title">Testando Especificidades</h1>
+      <p class="my-text">
+        Lorem ipsum dolor sit amet
+        <strong>consectetur adipisicing </strong> elit.<br />
+        Omnis doloribus reprehenderit velit nostrum quam distinctio <br />
+        rerum ex. Assumenda sequi quas commodi beatae, cum consequuntur<br />
+        quam quasi delectus, quisquam nisi quos.
+      </p>
+      <h1 class="my-title-2">Testando Especificidades</h1>
+      <p class="my-text-2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
+        Omnis doloribus reprehenderit velit nostrum quam distinctio <br />
+        rerum ex. <strong> sequi quas commodi beatae</strong>, cum
+        consequuntur<br />
+        quam quasi delectus, quisquam nisi quos.
+      </p>
+    </div>
+    <!-- Aula 5-->
+
+    <div>
+      <p>Teste</p>
+    </div>
+    <ul>
+      <li>Testando combinadores</li>
+    </ul>
+    <div>Outro formato</div>
+    <section>
+      <div>
+        <ul>
+          <li>Outro marcador</li>
+        </ul>
+      </div>
+    </section>
+    <!-- Aula 5-->
+    <h1>Título</h1>
+    <p>mais um parágrafo</p>
+    <button>Enviar</button>
+    <p>Outro parágrafo</p>
+  </body>
+</html>
